@@ -1,0 +1,19 @@
+FROM node:14-alpine
+
+WORKDIR /app
+RUN npm install -g pm2
+RUN pm2 install pm2-logrotate 
+RUN pm2 set pm2-logrotate:compress true 
+RUN apk add  --no-cache ffmpeg
+
+
+COPY package.json .
+RUN npm install 
+
+COPY . .
+
+
+
+CMD ["npm", "run", "dev"]
+
+# docker build -f Dockerfile.dev -t queue-test .

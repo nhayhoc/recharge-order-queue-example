@@ -1,0 +1,15 @@
+{
+  "name": "recharge-payment-queue-example",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bee-queue": "^1.4.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
