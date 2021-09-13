@@ -20,6 +20,7 @@ rechargeAndOrderQueue.process(async (job) => {
       try {
         await sleep(500);
         transferList.push(job.data.tranId);
+        transferList = transferList.slice(-50);
         return "new balance here";
       } catch (error) {
         // rollback if throw error
