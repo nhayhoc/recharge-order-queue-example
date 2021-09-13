@@ -6,14 +6,6 @@ const Queue = require("bee-queue");
 const app = express();
 app.use(logger("dev"));
 
-/**
- * Bug
- *      2 ng cùng mua 1 sản phẩm
- *      1 người cố tình gian lận = cách tạo nhiều request mua => Bug trừ tiền 1 lần
- * Solve: Queue 1 luồng
- *      Nạp tiền
- *      Thanh toán đơn hàng
- */
 const rechargeAndOrderQueue = new Queue("recharge-and-order", {
   redis: {
     host: "redis",
